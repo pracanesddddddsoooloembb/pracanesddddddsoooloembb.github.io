@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-<style type="text/css">
-body {
-   margin: 0;
-   padding: 0;
-}
-     /* Estilo para el fondo */
-      body {
-        background-color: #151918;
-        
-      }
-</style>
+ <style type="text/css">
+  html,  body {
+      background-color: #151918;
+      border: 0;
+      height: 100%;
+      width: 100%;
+      margin:0px;
+      padding:0px;
+    }
+  .embed {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  </style>
+</head>
+<body>
 <script type="text/javascript">
 
 
@@ -436,7 +445,7 @@ body {
 
     
     if (embedURL) {
-        document.write('<iframe class="embed" allow="encrypted-media" allowfullscreen src="' + embedURL.url + '" marginheight="0" marginwidth="0"  frameborder="0" scrolling="no" width="100%" height="100%" allowfullscreen></iframe>');
+        document.write('<iframe class="embed" allow="encrypted-media" allowfullscreen src="' + embedURL.url + '" marginheight="0" marginwidth="0"  frameborder="0" scrolling="no" allowfullscreen></iframe>');
   
     }       
 </script>
