@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
- <style type="text/css">
-  html,  body {
-      background-color: #151918;
-      border: 0;
-      height: 100%;
-      width: 100%;
-      margin:0px;
-      padding:0px;
-    }
-  .embed {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  </style>
-</head>
-<body>
+<style>
+        /* Elimina m�rgenes, paddings y scroll */
+        html, body {
+           background-color: #05081c;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Asegura que el iframe ocupe toda la pantalla sin causar scroll */
+        iframe {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
 <script type="text/javascript">
 
 
@@ -434,6 +432,36 @@
 'teeeinceeinteee-1-sd': {
             url: 'https://la14hd.com/vivo/canales.php?stream=tycinternacional',
         }, 
+'eeespreeeeargee-op1-sd': {
+            url: 'https://embed.ksdjugfsddeports.fun/embed2/espnpremiumargentina.html',
+        },     
+'eeespreeeeargee-op2-sd': {
+            url: 'https://embed.ksdjugfsddeports.fun/embed/espnpremiumargentina.html',
+        },
+'eeespreeeeargee-op2-sd': {
+            url: 'https://embed.ksdjugfsddeports.fun/embed/espnpremiumargentina.html',
+        },  
+'eeespreeeeargee-op3-sd': {
+            url: 'https://enz.gdplayertv.to/embed/espn-premium/?embed=1',
+        },    
+'teeespooargee-op1-sd': {
+            url: 'https://embed.ksdjugfsddeports.fun/embed2/tntsports.html',
+        },   
+'teeespooargee-op2-sd': {
+            url: 'https://embed.ksdjugfsddeports.fun/embed/tntsports.html',
+        },        
+'teeespooargee-op3-sd': {
+            url: 'https://enz.gdplayertv.to/embed/tnt-sports-ag/?embed=1',
+        },
+'teeeiiinceeargee-sd': {
+            url: 'https://enz.gdplayertv.to/embed/tyc-sports/?embed=1',
+        },      
+'eeespeeargee-1-sd': {
+            url: 'https://embed.ksdjugfsddeports.fun/embed2/espnar.html',
+        },
+'eeespeeargee-1-1-sd': {
+            url: 'https://embed.ksdjugfsddeports.fun/embed/espnar.html',
+        },  
 'teeeinceeinteeearge': {
             url: 'https://streamtp4.com/global1.php?stream=tycinternacional',
    
@@ -445,7 +473,7 @@
 
     
     if (embedURL) {
-        document.write('<iframe class="embed" allow="encrypted-media" src="' + embedURL.url + '" name="iframe" id="iframe" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" allowfullscreen></iframe>');
+        document.write('<iframe class="iframe" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen; geolocation; web-share; speaker-selection; screen-wake-lock; idle-detection" src="' + embedURL.url + '" name="iframe" id="iframe" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" allowfullscreen></iframe>');
   
     }       
 </script>
