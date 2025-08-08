@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<style>
+        /* Elimina m�rgenes, paddings y scroll */
+        html, body {
+           background-color: #05081c;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Asegura que el iframe ocupe toda la pantalla sin causar scroll */
+        iframe {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+<script type="text/javascript">
+
+
+   function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+   
+    var r = getParameterByName('id');
+  
+    var iframeURLs = {
+  
+'daafoo1-op1-sd': {
+            url: 'https://miztv.top/total/stream-537.php',
+        },
+'daafoo1-op2-sd': {
+            url: 'https://enz.gdplayertv.to/live-tv/dazn-f1/?alt=0&embed=1',
+        },
+'daafoo1-op3-sd': {
+            url: 'https://antenasport.org/daznf1.php',
+        },
+'daafoo1-op4-sd': {
+            url: 'https://thedaddy.dad/embed/stream-537.php',
+        },
+'daafoo1-op5-sd': {
+            url: 'https://enz.gdplayertv.to/live-tv/dazn-f1/?embed=1',
+        },
+'daafoo1-op6-sd': {
+            url: 'https://thedaddy.dad/embed/stream-537.php',
+        },    
+'espeepre-op1-wee': {
+            url: 'https://miztv.top/total/stream-387.php',
+        },           
+'espeepre-op2-wee': {
+            url: 'https://thedaddy.dad/embed/stream-387.php',
+        },   
+'espeepre-op3-wee': {
+            url: 'https://elcanaldeportivo.com/espnpremium.php',
+        },       
+'teespoargee-op1-wee': {
+            url: 'https://miztv.top/total/stream-388.php',
+        },
+'teespoargee-op2-wee': {
+            url: 'https://thedaddy.dad/embed/stream-388.php',
+        },      
+'teespoargee-op3-wee': {
+            url: 'https://elcanaldeportivo.com/tntsports.php',
+        },      
+ 'teeinspoargee-op1-wee': {
+            url: 'https://miztv.top/total/stream-746.php',
+        }, 
+ 'teeinspoargee-op2-wee': {
+            url: 'https://thedaddy.dad/embed/stream-746.php',
+        },       
+ 'teeinspoargee-op3-wee': {
+            url: 'https://elcanaldeportivo.com/tycsports-sd.php',
+        },                 
+'teeeinceeinteeearge': {
+            url: 'https://streamtp4.com/global1.php?stream=espn4',
+   
+}
+          
+    };
+ 
+    var embedURL = iframeURLs[r];
+
+    
+    if (embedURL) {
+        document.write('<iframe class="iframe" frameborder="0" src="' + embedURL.url + '" scrolling="no" frameBorder="0" width="100%" height="100%" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen; geolocation; web-share; speaker-selection; screen-wake-lock; idle-detection" allowfullscreen></iframe>');
+  
+    }       
+</script>
+</body>
+</html>
