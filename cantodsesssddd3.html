@@ -1,1 +1,149 @@
 
+<!doctype html>
+<html lang="es">
+<style>
+        /* Elimina m�rgenes, paddings y scroll */
+        html, body {
+           background-color: #05081c;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Asegura que el iframe ocupe toda la pantalla sin causar scroll */
+        iframe {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+<script type="text/javascript">
+
+
+   function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+   
+    var r = getParameterByName('id');
+  
+    var iframeURLs = {
+  
+'cieeecaa-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/cinecanal.html',
+        },             
+'cieeecaa-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/cinecanal.html',
+        }, 
+ 'cieeemaa-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/cinemax.html',
+        },             
+'cieeemaa-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/cinemax.html',
+        },
+ 'spaaaeee-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/space.html',
+        },             
+'spaaaeee-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/space.html',
+        }, 
+ 'essstaachaa-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/starchannel.html',
+        },             
+'essstaachaa-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/starchannel.html',
+        }, 
+ 'waaachaa-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/warnerchannel.html',
+        },             
+'waaachaa-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/warnerchannel.html',
+        },        
+ 'paaamoouu-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/paramountchannel.html',
+        },             
+'paaamoouu-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/paramountchannel.html',
+        }, 
+'teeeteepeel-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/tnt.html',
+        },             
+'teeeteepeel-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/tnt.html',
+        },
+ 'teeeteeseer-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/tntseries.html',
+        },             
+'teeeteeseer-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/tntseries.html',
+        },
+  'teeeteenovee-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/tntnovelas.html',
+        },             
+'teeeteenovee-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/tntnovelas.html',
+        },       
+ 'aeeequiin-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/axn.html',
+        },    
+'aeeequiin-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/axn.html',
+        },
+ 'aeeemee-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/amc.html',
+        },    
+'aeeemee-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/amc.html',
+        },  
+ 'efeequi-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/fx.html',
+        },    
+'efeequi-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/fx.html',
+        },   
+ 'estuunii-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/studiouniversal.html',
+        },    
+'estuunii-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/studiouniversal.html',
+        }, 
+ 'comeeceen-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/comedycentral.html',
+        },    
+'comeeceen-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/comedycentral.html',
+        },  
+ 'soooiii-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/sony.html',
+        },    
+'soooiii-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/sony.html',
+        },
+ 'uniivee-op1-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed2/universalchannel.html',
+        },    
+'uniivee-op2-bajacali': {
+            url: 'https://embed.ksdjugfsddeports.com/embed/universalchannel.html',
+        },      
+'reeecanearge': {
+            url: 'https://streamtp4.com/global1.php?stream=tycinternacional',
+   
+}
+          
+    };
+ 
+    var embedURL = iframeURLs[r];
+
+    
+    if (embedURL) {
+        document.write('<iframe class="iframe" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen; geolocation; web-share; speaker-selection; screen-wake-lock; idle-detection" src="' + embedURL.url + '" name="iframe" id="iframe" width="100%" height="100%" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" allowfullscreen></iframe>');
+  
+    }       
+</script>
+</body>
+</html>
