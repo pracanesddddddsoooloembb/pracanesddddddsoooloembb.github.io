@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<style>
+        /* Elimina m�rgenes, paddings y scroll */
+        html, body {
+           background-color: #05081c;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Asegura que el iframe ocupe toda la pantalla sin causar scroll */
+        iframe {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+<script type="text/javascript">
+
+
+   function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+   
+    var r = getParameterByName('id');
+  
+    var iframeURLs = {
+  
+'canwaachaaa-claaaoo': {
+            url: 'https://telegratuita.com/reproductor/?r=L2l6L3dhcm5lci5waHA=',
+        },
+ 'canfoopremejeop2': {
+            url: 'https://cans15-07tioooovariaaaoos.github.io/foopremejeop2.html?id=foopremeje-niiitoop2',
+        },   
+'teeeinceeinteeearge': {
+            url: 'https://streamtp4.com/global1.php?stream=espn4',
+   
+}
+          
+    };
+ 
+    var embedURL = iframeURLs[r];
+
+    
+    if (embedURL) {
+        document.write('<iframe class="iframe" frameborder="0" src="' + embedURL.url + '" scrolling="no" frameBorder="0" width="100%" height="100%" allow="encrypted-media" sandbox= "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" allowfullscreen></iframe>');
+  
+    }       
+</script>
+</body>
+</html>
