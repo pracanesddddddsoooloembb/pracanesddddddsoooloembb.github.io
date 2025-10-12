@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+      <style>
+      /* Estilo para el fondo */
+      body {
+        background-color: #05081c;
+      }
+      
+ </style>
+			<div class="card-body">
+				<div class="post">
+					<div id="player"></div>
+          <link href="//vjs.zencdn.net/8.23.3/video-js.min.css" rel="stylesheet">
+          <script src="//vjs.zencdn.net/8.23.3/video.min.js"></script>       
+					<link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet" />
+					<script src="https://unpkg.com/@silvermine/videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>
+					<script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
+				<script>
+					function createPlayer(callback) {
+						var video = document.createElement("video");
+						video.id = "reproductorTv";
+						video.className = "video-js vjs-theme-default vjs-fluid vjs-16-9 vjs-big-play-centered";
+						video.setAttribute("controls", true);
+						video.setAttribute("poster", " ");
+						document.querySelector("#player").appendChild(video);
+						
+						var options = {
+							autoplay: false,
+							controls: true,
+							controlBar: {
+								children: [
+									"playToggle",
+									"volumePanel",
+									"liveDisplay",
+									"pictureInPictureToggle",
+									"qualitySelector",
+									"fullscreenToggle",
+								],
+							},
+						};
+						
+						try {
+							let player = videojs(video.id, options, function() {
+								player.on("error", function() {
+									console.log("error");
+								});
+							});
+							
+							player.src([
+								{
+									label: "720p",
+									src: "https://appletree-mytime-samsungmexico.amagi.tv/playlist720_p.m3u8",
+									type: "application/x-mpegURL"
+								},
+								{
+									label: "480p",
+									src: "https://appletree-mytime-samsungmexico.amagi.tv/playlist480_p.m3u8",
+									type: "application/x-mpegURL"
+								},
+								{
+									label: "360p",
+									src: "https://appletree-mytime-samsungmexico.amagi.tv/playlist360_p.m3u8",
+									type: "application/x-mpegURL"
+								}
+							]);
+        					player.fluid(true);
+        					player.aspectRatio("16:9");
+        					callback(player);
+						} catch (err) {
+							return;
+						}
+					}
+					(function(window, videojs) {
+						createPlayer();
+					})(window, player);
+				</script>
+				</div>
+			</div>
+			<div class="card-footer">
+</html>
