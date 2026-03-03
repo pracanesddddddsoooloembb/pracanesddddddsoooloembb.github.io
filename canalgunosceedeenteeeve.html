@@ -1,0 +1,110 @@
+
+<!doctype html>
+<html lang="es">
+<style>
+:root {
+  --dark-color: #001202;
+  --mid-dark: #051F20;
+  --light-color: #051F20;
+  --mid-light: #051F20;
+  --shadow: #051F20;
+  --linear-rainbow: linear-gradient(
+    to right,
+    #163832,
+    #163832,
+    #163832,
+    #163832,
+    #163832
+  );
+  --circle-rainbow: radial-gradient(
+    circle at left top,
+    #051F20,
+    #051F20,
+   #051F20,
+    #051F20,
+   #051F20
+  );
+  --noise-texture: url();
+  --gif-texture: url();
+  --mulish: "Mulish", sans-serif;
+  --playfair: "Playfair Display", serif;
+  --dm: "DM Serif Display", serif;
+  --main-transition: all 0.2s ease-in-out;
+}
+
+html,
+body {
+  background-color: #05081c	;
+  background-image: var(--noise-texture);
+  background-blend-mode: overlay;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Asegura que el iframe ocupe toda la pantalla sin causar scroll */
+        iframe {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+<script type="text/javascript">
+
+
+   function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+   
+    var r = getParameterByName('id');
+  
+    var iframeURLs = {
+   <!---------------------------ARGENTINA---------------------------> 
+
+'eespe1arg-sd': {
+            url: 'https://cdn-live.tv/api/v1/channels/player/?name=espn&code=ar&user=cdnlivetv&plan=free',
+        }, 
+'eespe2arg-sd': {
+            url: 'https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=ar&user=cdnlivetv&plan=free',
+        },
+'eespe3arg-sd': {
+            url: 'https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=ar&user=cdnlivetv&plan=free',
+        },
+ 'eesprearg-sd': {
+            url: 'https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free',
+        }, 
+'teespoarg-sd': {
+            url: 'https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free',
+        },
+ 'foo1arg-sd': {
+            url: 'https://cdn-live.tv/api/v1/channels/player/?name=fox+sports&code=ar&user=cdnlivetv&plan=free',
+        }, 
+'foo2arg-sd': {
+            url: 'https://cdn-live.tv/api/v1/channels/player/?name=fox+sports+2&code=ar&user=cdnlivetv&plan=free',
+        },  
+'foo3arg-sd': {
+            url: 'https://cdn-live.tv/api/v1/channels/player/?name=fox+sports+3&code=ar&user=cdnlivetv&plan=free',
+        },       
+'reeecanearge': {
+            url: 'https://streamtp4.com/global1.php?stream=tycinternacional',
+   
+}
+          
+    };
+ 
+    var embedURL = iframeURLs[r];
+
+    
+    if (embedURL) {
+        document.write('<iframe class="iframe" loading="lazy" allow="encrypted-media; gyroscope; picture-in-picture; fullscreen; geolocation; web-share;" src="' + embedURL.url + '" name="iframe" id="iframe" width="100%" height="100%" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" sandbox= "allow-presentation allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" allowfullscreen></iframe>');
+  
+    }       
+</script>
+</body>
+</html>
