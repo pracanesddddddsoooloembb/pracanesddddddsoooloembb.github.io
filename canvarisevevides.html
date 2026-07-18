@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <style>
+        .jw-settings-menu {
+    border-radius: 6px;
+}
+
+.jw-sharing-link:active,
+.jw-sharing-copy:active.jw-sharing-link:hover,
+.jw-button-color.jw-toggle.jw-off:active:not(.jw-icon-cast),
+.jw-button-color.jw-toggle.jw-off:focus:not(.jw-icon-cast),
+.jw-button-color.jw-toggle.jw-off:hover:not(.jw-icon-cast),
+.jw-button-color.jw-toggle:not(.jw-icon-cast),
+.jw-button-color:active:not(.jw-icon-cast),
+.jw-button-color:focus:not(.jw-icon-cast),
+.jw-button-color:hover:not(.jw-icon-cast),
+.jw-button-color[aria-expanded=true]:not(.jw-icon-cast),
+.jw-settings-content-item.jw-settings-item-active,
+.jw-settings-menu .jw-icon.jw-button-color[aria-checked="true"] .jw-svg-icon {
+    fill: #FFFFFF !important;
+    color: #FFFFFF !important;
+    background-color: transparent !important;
+}
+
+
+
+.jw-svg-icon-play path {
+    display: none;
+}
+
+.jw-svg-icon-play {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%231f80e0' fill-rule='evenodd' d='M6.313 22.05c-1.22.722-2.75-.148-2.811-1.586-.238-5.65-.21-11.216.02-16.928.057-1.408 1.53-2.282 2.751-1.62 5.481 2.97 10.822 6.162 13.825 7.992 1.174.715 1.223 2.426.091 3.21-2.89 2.002-8.095 5.507-13.876 8.932z'/%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-display:hover .jw-svg-icon-play,
+.jw-icon-playback:hover .jw-svg-icon-play {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24'%3E%3Cpath fill='%231f80e0' fill-rule='evenodd' d='M6.313 22.05c-1.22.722-2.75-.148-2.811-1.586-.238-5.65-.21-11.216.02-16.928.057-1.408 1.53-2.282 2.751-1.62 5.481 2.97 10.822 6.162 13.825 7.992 1.174.715 1.223 2.426.091 3.21-2.89 2.002-8.095 5.507-13.876 8.932z'/%3E%3C/svg%3E%0A");
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   background-color:#05081c
+}
+
+@keyframes scaling {
+    from {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+    }
+}
+
+@-webkit-keyframes scaling {
+    from {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+    }
+}
+
+.jw-svg-icon-cc-off path,
+.jw-svg-icon-cc-on path {
+    display: none;
+}
+
+.jw-svg-icon-cc-off,
+.jw-svg-icon-cc-on {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='audio-subtitles'%3E%3Cpath fill='%23FFFFFF' d='M5,15 L5,13 L12,13 L12,15 L5,15 Z M14,15 L14,13 L19,13 L19,15 L14,15 Z M10,9 L10,11 L5,11 L5,9 L10,9 Z M11.9998571,11 L12.0001429,9.00000001 L19.0001429,9.00100001 L18.9998571,11.001 L11.9998571,11 Z M17,17 L21,17 L21,5 L3,5 L3,17 L12.9968832,17 L17,19.4392488 L17,17 Z M1,3 L23,3 L23,19 L19,19 L19,22.9999671 L12.4355463,19 L1,19 L1,3 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-cc:hover .jw-svg-icon-cc-off,
+.jw-icon-cc:hover .jw-svg-icon-cc-on,
+.jw-settings-captions:hover .jw-svg-icon-cc-off,
+.jw-settings-captions:hover .jw-svg-icon-cc-on,
+.jw-settings-captions[aria-expanded="true"] .jw-svg-icon-cc-off,
+.jw-settings-captions[aria-expanded="true"] .jw-svg-icon-cc-on {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='audio-subtitles'%3E%3Cpath fill='%23FFFFFF' d='M5,15 L5,13 L12,13 L12,15 L5,15 Z M14,15 L14,13 L19,13 L19,15 L14,15 Z M10,9 L10,11 L5,11 L5,9 L10,9 Z M11.9998571,11 L12.0001429,9.00000001 L19.0001429,9.00100001 L18.9998571,11.001 L11.9998571,11 Z M17,17 L21,17 L21,5 L3,5 L3,17 L12.9968832,17 L17,19.4392488 L17,17 Z M1,3 L23,3 L23,19 L19,19 L19,22.9999671 L12.4355463,19 L1,19 L1,3 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.jw-svg-icon-pause path {
+    display: none;
+}
+
+.jw-svg-icon-pause {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='pause'%3E%3Cpath fill='%23FFFFFF' d='M5,3 L10,3 L10,21 L5,21 L5,3 Z M14,3 L19,3 L19,21 L14,21 L14,3 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-display:hover .jw-svg-icon-pause,
+.jw-icon-playback:hover .jw-svg-icon-pause {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='pause'%3E%3Cpath fill='%23FFFFFF' d='M5,3 L10,3 L10,21 L5,21 L5,3 Z M14,3 L19,3 L19,21 L14,21 L14,3 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.jw-svg-icon-volume-100 path {
+    display: none;
+}
+
+.jw-svg-icon-volume-100 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-high'%3E%3Cpath fill='%23FFFFFF' d='M9,7.82842712 L6.82842712,10 L4,10 L4,14 L6.82842712,14 L9,16.1715729 L9,7.82842712 Z M11,21 L6,16 L2,16 L2,8 L6,8 L11,3 L11,21 Z M13.7437869,16.3889482 L12.3295734,14.9747347 C13.9546583,13.3496497 13.9546583,10.7148664 L12.3295734,9.08978146 L13.7437869,7.6755679 C16.1499205,10.0817014 16.1499205,13.9828147 L13.7437869,16.3889482 Z M16.2137399,18.2137399 L14.7995264,16.7995264 C17.4324159,14.1666368 17.4324159,9.89787935 L14.7995264,7.26498977 L16.2137399,5.8507762 C19.6276781,9.26471437 19.6276781,14.7998018 L16.2137399,18.2137399 Z M18.6836929,20.0385316 L17.2694793,18.6243181 C20.9101736,14.9836239 20.9101736,9.08089228 L17.2694793,5.44019807 L18.6836929,4.02598451 C23.1054357,8.4477273 23.1054357,15.6167888 L18.6836929,20.0385316 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-volume:hover .jw-svg-icon-volume-100 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-high'%3E%3Cpath fill='%23FFFFFF' d='M9,7.82842712 L6.82842712,10 L4,10 L4,14 L6.82842712,14 L9,16.1715729 L9,7.82842712 Z M11,21 L6,16 L2,16 L2,8 L6,8 L11,3 L11,21 Z M13.7437869,16.3889482 L12.3295734,14.9747347 C13.9546583,13.3496497 13.9546583,10.7148664 L12.3295734,9.08978146 L13.7437869,7.6755679 C16.1499205,10.0817014 16.1499205,13.9828147 L13.7437869,16.3889482 Z M16.2137399,18.2137399 L14.7995264,16.7995264 C17.4324159,14.1666368 17.4324159,9.89787935 L14.7995264,7.26498977 L16.2137399,5.8507762 C19.6276781,9.26471437 19.6276781,14.7998018 L16.2137399,18.2137399 Z M18.6836929,20.0385316 L17.2694793,18.6243181 C20.9101736,14.9836239 20.9101736,9.08089228 L17.2694793,5.44019807 L18.6836929,4.02598451 C23.1054357,8.4477273 23.1054357,15.6167888 L18.6836929,20.0385316 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.jw-svg-icon-volume-50 path {
+    display: none;
+}
+
+.jw-svg-icon-volume-50 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-medium'%3E%3Cpath fill='%23FFFFFF' d='M11,7.82842712 L8.82842712,10 L6,10 L6,14 L8.82842712,14 L11,16.1715729 L11,7.82842712 Z M13,21 L8,16 L4,16 L4,8 L8,8 L13,3 L13,21 Z M15.7437869,16.3889482 L14.3295734,14.9747347 C15.9546583,13.3496497 15.9546583,10.7148664 L14.3295734,9.08978146 L15.7437869,7.6755679 C18.1499205,10.0817014 18.1499205,13.9828147 L15.7437869,16.3889482 Z M18.2137399,18.2137399 L16.7995264,16.7995264 C19.4324159,14.1666368 19.4324159,9.89787935 L16.7995264,7.26498977 L18.2137399,5.8507762 C21.6276781,9.26471437 21.6276781,14.7998018 L18.2137399,18.2137399 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-volume:hover .jw-svg-icon-volume-50 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-medium'%3E%3Cpath fill='%23FFFFFF' d='M11,7.82842712 L8.82842712,10 L6,10 L6,14 L8.82842712,14 L11,16.1715729 L11,7.82842712 Z M13,21 L8,16 L4,16 L4,8 L8,8 L13,3 L13,21 Z M15.7437869,16.3889482 L14.3295734,14.9747347 C15.9546583,13.3496497 15.9546583,10.7148664 L14.3295734,9.08978146 L15.7437869,7.6755679 C18.1499205,10.0817014 18.1499205,13.9828147 L15.7437869,16.3889482 Z M18.2137399,18.2137399 L16.7995264,16.7995264 C19.4324159,14.1666368 19.4324159,9.89787935 L16.7995264,7.26498977 L18.2137399,5.8507762 C21.6276781,9.26471437 21.6276781,14.7998018 L18.2137399,18.2137399 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.jw-svg-icon-volume-0 path {
+    display: none;
+}
+
+.jw-svg-icon-volume-0 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-off'%3E%3Cpath fill='%23FFFFFF' d='M9,7.82842712 L6.82842712,10 L4,10 L4,14 L6.82842712,14 L9,16.1715729 L9,7.82842712 Z M11,21 L6,16 L2,16 L2,8 L6,8 L11,3 L11,21 Z M17,10.5857864 L20.2928932,7.29289322 L21.7071068,8.70710678 L18.4142136,12 L21.7071068,15.2928932 L20.2928932,16.7071068 L17,13.4142136 L13.7071068,16.7071068 L12.2928932,15.2928932 L15.5857864,12 L12.2928932,8.70710678 L13.7071068,7.29289322 L17,10.5857864 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-volume:hover .jw-svg-icon-volume-0 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='volume-off'%3E%3Cpath fill='%23FFFFFF' d='M9,7.82842712 L6.82842712,10 L4,10 L4,14 L6.82842712,14 L9,16.1715729 L9,7.82842712 Z M11,21 L6,16 L2,16 L2,8 L6,8 L11,3 L11,21 Z M17,10.5857864 L20.2928932,7.29289322 L21.7071068,8.70710678 L18.4142136,12 L21.7071068,15.2928932 L20.2928932,16.7071068 L17,13.4142136 L13.7071068,16.7071068 L12.2928932,15.2928932 L15.5857864,12 L12.2928932,8.70710678 L13.7071068,7.29289322 L17,10.5857864 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.jw-svg-icon-fullscreen-on path {
+    display: none;
+}
+
+.jw-svg-icon-fullscreen-on {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='fullscreen-on'%3E%3Cpath fill='%23FFFFFF' d='M4,6 L4,10 L2,10 L2,4 L8,4 L8,6 L4,6 Z M4,18 L8,18 L8,20 L2,20 L2,14 L4,14 L4,18 Z M6,8 L18,8 L18,16 L6,16 L6,8 Z M20,6 L16,6 L16,4 L22,4 L22,10 L20,10 L20,6 Z M20,18 L20,14 L22,14 L22,20 L16,20 L16,18 L20,18 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-on {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='fullscreen-on'%3E%3Cpath fill='%23FFFFFF' d='M4,6 L4,10 L2,10 L2,4 L8,4 L8,6 L4,6 Z M4,18 L8,18 L8,20 L2,20 L2,14 L4,14 L4,18 Z M6,8 L18,8 L18,16 L6,16 L6,8 Z M20,6 L16,6 L16,4 L22,4 L22,10 L20,10 L20,6 Z M20,18 L20,14 L22,14 L22,20 L16,20 L16,18 L20,18 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.jw-svg-icon-fullscreen-off path {
+    display: none;
+}
+
+.jw-svg-icon-fullscreen-off {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='fullscreen-off'%3E%3Cpath fill='%23FFFFFF' d='M2,4 L22,4 L22,20 L2,20 L2,4 Z M6,8 L10,8 L10,6 L4,6 L4,10 L6,10 L6,8 Z M6,16 L6,14 L4,14 L4,18 L10,18 L10,16 L6,16 Z M18,8 L18,10 L20,10 L20,6 L14,6 L14,8 L18,8 Z M18,16 L14,16 L14,18 L20,18 L20,14 L18,14 L18,16 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.jw-icon-fullscreen:hover .jw-svg-icon-fullscreen-off {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg id='fullscreen-off'%3E%3Cpath fill='%23FFFFFF' d='M2,4 L22,4 L22,20 L2,20 L2,4 Z M6,8 L10,8 L10,6 L4,6 L4,10 L6,10 L6,8 Z M6,16 L6,14 L4,14 L4,18 L10,18 L10,16 L6,16 Z M18,8 L18,10 L20,10 L20,6 L14,6 L14,8 L18,8 Z M18,16 L14,16 L14,18 L20,18 L20,14 L18,14 L18,16 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.jw-state-idle .jw-display-controls .jw-display-icon-container {
+  
+    animation-name: scaling;
+    -webkit-animation-name: scaling;
+    animation-duration: 0.6s;
+    -webkit-animation-duration: 0.6s;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-direction: alternate;
+    -webkit-animation-direction: alternate;
+
+}
+
+.jw-progress {
+    background-color: #56ff00 !important;
+}
+.jw-text-live::before {
+    background-color: red !important;
+    }
+.jw-reset-text{
+    color: white !important;
+}
+    #player {
+      margin: auto;
+      background-color: #05081c;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .jwplayer {
+      color: #fff !important;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .jw-controlbar {
+      background-color: #05081c !important;
+      border-top: 1px solid #333;
+    }
+
+    .jw-controlbar .jw-button-container {
+      position: absolute !important;
+      top: -46px;
+      left: 0;
+      right: 0;
+      height: 46px;
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 31, 32),
+        rgba(0,0,0,0.35)
+      );
+      border-bottom: 1px solid #333;
+      padding: 4px 8px;
+      z-index: 10;
+    }
+
+    .jwplayer video {
+      margin-top: 46px;
+    }
+
+    .jw-button-color {
+      color: #ccc !important;
+    }
+
+    .jw-button-color:hover {
+      color: #FFFFFF !important;
+    }
+
+    .jw-icon {
+      filter: brightness(1.4);
+    }
+
+    .jw-time {
+      color: #eee !important;
+      font-size: 12px;
+    }
+
+    .jw-text-track-display {
+      background-color: rgba(0,0,0,0.6);
+      color: #fff;
+      font-size:16px;
+      font-family:'Segoe UI',sans-serif;
+    }
+
+    .jw-title {
+      color: #ddd !important;
+    }
+
+    .jw-display-icon-container {
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .ios-landscape {
+      transform: rotate(90deg);
+      transform-origin: center center;
+      width: 100vh !important;
+      height: 100vw !important;
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      background: #05081c;
+      z-index: 9999;
+    }
+  </style>
+<script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js"></script>
+    <script>jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";</script>
+</head>
+
+<body>
+
+    <!-- Pantalla de carga -->
+
+
+    <div id="player"></div>
+
+    
+    <script>
+        let url = new URL(window.location.href);
+        const stream = url.searchParams.get('id');
+
+
+        const streamUrls = {
+            "vamos_movistar": "chn_cd644d3f6248",
+            "adult_swim": "chn_21af01a52d88",
+            "america_sports": "chn_1d5885e42024",
+            "animal_planet": "chn_61aa1fac9216",
+            "azteca_7": "chn_77338b8ad90b",
+            "bicolor": "chn_dc1de5e8b426",
+            "canal_5_mx": "chn_1d1d708886ac",
+            "caze_tv": "chn_503610ab15d4",
+            "chilevision": "chn_99bc46ed6ec6",
+            "cine_canal": "chn_986f28a1ca6c",
+            "dazn_1_es": "chn_254e3211154b",
+            "dazn_2": "chn_f39d606b4397",
+            "dazn_3": "chn_9367db511c2c",
+            "dazn_4": "chn_5f5a9c042f86",
+            "dazn_f1": "chn_83f942e9073c",
+            "dazn_la_liga": "chn_9587e33bc44e",
+            "dazn_mundial": "chn_50a816dac4ee",
+            "discovery_channel": "chn_3f5eb8f3fb67",
+            "disney_channel": "chn_65bbccafde25",
+            "disney_eventos": "chn_522656f82860",
+            "dpeliculas_clasico": "chn_2c87abaedd6e",
+            "dragon_ball_24_7": "chn_620f8a450c4d",
+            "dsports": "chn_2aaccab77c7d",
+            "dsports_2": "chn_38b97c9cd1ba",
+            "dsports_plus": "chn_26daf7c8e365",
+            "ecdf_liga_pro": "chn_e8c62fd79e0b",
+            "espn_1": "chn_52a06d1b9596",
+            "espn_2": "chn_05f785a60fde",
+            "espn_2_colombia": "chn_c605bb28cbd9",
+            "espn_3": "chn_7b13e2f4a8c1",
+            "espn_4": "chn_4f1a8c7e2d9b",
+            "espn_5": "chn_8a3e1f7c2d6b",
+            "espn_6": "chn_3c6f2a8e1d4b",
+            "espn_7": "chn_9d4b2f7a1e6c",
+            "espn_colombia": "chn_f6c2af6cb0c7",
+            "espn_colombia_3": "chn_e1290c739e83",
+            "espn_deportes": "chn_5db9c1e4373b",
+            "espn_mx": "chn_1c68560bb063",
+            "espn_premium_ar": "chn_dfbf070638fc",
+            "fox_sports_ar": "chn_d6e216cb03b8",
+            "fox_sports_2_ar": "chn_ffc4f98db846",
+            "fox_sports_3_ar": "chn_00d417a2e9c8",
+            "fx": "chn_7c8923807364",
+            "gen_py": "chn_95e350d643bb",
+            "gol_caracol": "chn_48c58a08fff2",
+            "gol_peru": "chn_0593f57654e3",
+            "gol_tv": "chn_ffa51d1ee23e",
+            "hbo": "chn_6e93e6b8fd26",
+            "hbo_2": "chn_4277f07853d4",
+            "history": "chn_6948ce9963df",
+            "history_2": "chn_59d4be70fa3f",
+            "history_military": "chn_910df5256ed5",
+            "la_1_espana": "chn_517f0f9a9c46",
+            "la_liga_1max": "chn_a096f71fa483",
+            "los_simpons": "chn_e0264afe9d74",
+            "paramount_en": "chn_7876e6aef624",
+            "paramount_plus_pt": "chn_8acc42f3657f",
+            "paramount_plus_es": "chn_1f47c41450ed",
+            "rcn_plus": "chn_e06c91e272d4",
+            "sony_cine": "chn_618334190891",
+            "space": "chn_6b38bf280a72",
+            "sport_tv_2_br": "chn_53c7581a7034",
+            "sport_tv_br": "chn_096d65b20811",
+            "starchannel": "chn_9030f06eb5b0",
+            "telefe": "chn_e46857a6c4ab",
+            "telemundo": "chn_e124e625f817",
+            "the_sports_network": "chn_e525954b58b1",
+            "tigo_sports_bo": "chn_850dbf661b1d",
+            "tnt_sports": "chn_b73dac05f6a6",
+            "tnt_sports_chile": "chn_a5af7624db73",
+            "trece_py": "chn_12c85ad40d7c",
+            "tudn_mx": "chn_da159aecb996",
+            "tv_publica": "chn_ddced4b0fd6e",
+            "tyc_sports": "chn_cfcdeb0b8708",
+            "unitel_bo": "chn_6ad425048072",
+            "vevo_latam": "chn_de33c22d11d7",
+            "vix_premium_eventos": "chn_4f0b43a593db",
+            "vix_premium_eventos_2": "chn_d30ec0e39848",
+            "vix_premium_eventos_3": "chn_f381a337f4ed",
+            "vtv_plus_uruguay": "chn_86177d5e909c",
+            "win_sports": "chn_b3734cc7c292",
+            "win_sports_plus": "chn_513845504e7c",
+            "xite_siempre_latino": "chn_5742b91892a8",
+            "zapping_sports": "chn_7167e1525603"
+        };
+
+
+        const getURL = "https://videx.lol/embed.php?channel=" + streamUrls[stream] + "&key=videx.lol";
+
+        function ocultarLoader() {
+            const loader = document.getElementById('loader');
+            loader.classList.add('oculto');
+            // Lo removemos del DOM después de la transición
+            setTimeout(() => loader.remove(), 500);
+        }
+
+        if (!getURL) {
+            alert("Parámetro 'stream' vacío o erróneo");
+            ocultarLoader();
+        } else {
+            window.onload = iniciarReproductor;
+        }
+
+        async function obtener() {
+            try {
+                const response = await fetch(
+                    'https://proxy-videx.canalesonline24.workers.dev/?url=' +
+                    encodeURIComponent(getURL)
+                );
+
+                const html = await response.text();
+
+                const doc = new DOMParser().parseFromString(html, "text/html");
+                const player = doc.querySelector(".js-player-init");
+
+                if (!player) {
+                    console.error("❌ No se encontró .js-player-init");
+                    ocultarLoader();
+                    return null;
+                }
+
+                const data = player.dataset.src || player.dataset.backup;
+
+                if (!data) {
+                    console.error("❌ No existe data-src ni data-backup");
+                    ocultarLoader();
+                    return null;
+                }
+
+                const m3u8 = atob(data);
+
+                console.log("M3U8:", m3u8);
+
+                return m3u8;
+
+            } catch (error) {
+                console.error(error);
+                ocultarLoader();
+                return null;
+            }
+        }
+
+        async function iniciarReproductor() {
+            const playbackURL = await obtener();
+            if (playbackURL) {
+                const player = jwplayer("player").setup({
+                    title: "REPRODUCTOR",
+                    description: "EN VIVO",
+                    file: playbackURL,
+                    width: "100%",
+                    height: "100%",
+                    autostart: false,
+		            volume:100,
+                    stretching: "exactfit",
+                    mute: false,
+                    cast: {},
+                    preload: "auto",
+                    liveSyncDuration: 30, 
+                    live: { dvrSeekLimit: 3600, edgeMargin: 30 },
+                    hls: { 
+                        bufferLength: 45, 
+                        maxBufferLength: 120,
+                        maxMaxBufferLength: 240,
+                        maxBufferSize: 100000000, // [MEJORA APLICADA]: Aumentado para mejor fluidez en internet rápido
+                        enableWorker: true,       // [MEJORA APLICADA]: Mejora rendimiento de carga
+                        manifestLoadingMaxRetry: 15,
+                        levelLoadingMaxRetry: 15,
+                        fragLoadingMaxRetry: 15,
+                        startLevel: -1,
+                        withCredentials: false
+                    },
+                    displaytitle: true,
+                    displaydescription: true,
+                    controls: true,
+                  
+                });
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const isSmartTV = /SmartTV|Tizen|Web0S|SmartHub|Chromecast/i.test(navigator.userAgent);
+
+      if (isSmartTV) {
+        player.on("ready", function () {
+          const video = document.querySelector("#player video");
+          if (video) {
+            video.muted = false;
+            try { video.volume = 1.0; } catch(e){}
+          }
+        });
+      }
+
+      // Preferir pista de audio si aplica
+      const preferredAudioLangIndex = 1;
+      player.on("play", () => {
+        try { player.setCurrentAudioTrack(preferredAudioLangIndex); }
+        catch(e) {}
+      });
+
+      // Manejo de fullscreen y orientación
+      player.on("fullscreen", function(e) {
+        const contenedor = document.getElementById("player");
+        if (!isIOS && screen.orientation) {
+          if (e.fullscreen) {
+            const tryLock = async () => {
+              try { await screen.orientation.lock("landscape"); }
+              catch(err) { setTimeout(tryLock, 200); }
+            };
+            tryLock();
+          } else {
+            try { screen.orientation.unlock(); } catch(err) {}
+          }
+        }
+        if (isIOS) {
+          if (e.fullscreen) contenedor.classList.add("ios-landscape");
+          else contenedor.classList.remove("ios-landscape");
+        }
+      });
+
+      // --- Lógica para que "Automático" prefiera la mayor calidad disponible ---
+      let highestIndex = null;
+      let lastForcedAt = 0;
+      const FORCE_COOLDOWN_MS = 8000;
+      const BACKOFF_MULTIPLIER = 2;
+      let currentBackoff = FORCE_COOLDOWN_MS;
+
+      function tryForceHighest(reason) {
+        const now = Date.now();
+        if (highestIndex === null) return;
+        if (now - lastForcedAt < currentBackoff) return;
+        try {
+          player.setCurrentQuality(highestIndex);
+          lastForcedAt = now;
+          currentBackoff = Math.min(currentBackoff * BACKOFF_MULTIPLIER, 60000);
+          console.log('Forzando calidad máxima (índice):', highestIndex, 'motivo:', reason);
+        } catch (e) {
+          console.warn('setCurrentQuality falló al forzar:', e);
+        }
+      }
+
+      player.on('levels', function(data) {
+        try {
+          const levels = data.levels || [];
+          console.log('Niveles HLS recibidos:', levels);
+          if (!levels.length) {
+            highestIndex = null;
+            return;
+          }
+
+          let bestIdx = 0;
+          let bestMetric = -1;
+          levels.forEach((lvl, i) => {
+            const bandwidth = lvl.bitrate || lvl.bandwidth || 0;
+            const height = lvl.height || 0;
+            const metric = (bandwidth * 1.0) + (height * 1000);
+            if (metric > bestMetric) { bestMetric = metric; bestIdx = i; }
+          });
+
+          highestIndex = bestIdx;
+          currentBackoff = FORCE_COOLDOWN_MS;
+          try {
+            player.setCurrentQuality(highestIndex);
+            lastForcedAt = Date.now();
+            console.log('Aplicada calidad inicial (mayor):', highestIndex, levels[highestIndex]);
+          } catch (err) {
+            console.warn('No se pudo aplicar calidad inicial:', err);
+          }
+        } catch (err) {
+          console.warn('Error procesando niveles:', err);
+        }
+      });
+
+      player.on('visualQuality', function(info) {
+        try {
+          if (!info) return;
+          if (info.mode === 'auto' && highestIndex !== null && typeof info.level === 'number') {
+            if (info.level < highestIndex) {
+              tryForceHighest('visualQuality detectó nivel inferior');
+            } else {
+              currentBackoff = FORCE_COOLDOWN_MS;
+            }
+          }
+        } catch (e) {
+          console.warn('Error en visualQuality handler:', e);
+        }
+      });
+
+      player.on('buffer', function() {
+        try {
+          currentBackoff = FORCE_COOLDOWN_MS * 2;
+          console.log('Buffering detectado: permitiendo bajar calidad');
+        } catch(e){}
+      });
+
+      player.on('error', function(err) {
+        console.error('Error JW Player:', err);
+      });
+
+      player.on('setupError', function(err) {
+        console.error('Setup error:', err);
+      });
+
+      player.on('ready', function() {
+        try {
+          const latency = player.getLiveLatency?.();
+          console.log('Latencia / DVR:', latency, 'segundos');
+        } catch(e){}
+      });
+
+      // Asegurar autoplay en cada cambio de playlist
+      player.on('playlistItem', function() {
+        setTimeout(() => {
+          try { player.play(); } catch (e) {}
+        }, 100);
+      });
+    window.onload = iniciarReproductor;
+                // Se quita SOLO cuando el canal está reproduciendo de verdad
+                jwplayer("player").on("firstFrame", ocultarLoader);
+                jwplayer("player").on("time", function handler() {
+                    ocultarLoader();
+                    jwplayer("player").off("time", handler); // se auto-desuscribe
+                });
+            }
+        }
+    </script>
+
+    <!-- INICIO: SCRIPT PROFESIONAL APARTE - FORZADO LANDSCAPE MÓVILES Y TABLETS -->
+    <script>
+        (function() {
+            // Detección robusta exclusivamente de celulares y tablets (Android, iOS viejos/nuevos, iPadOS, Redmi, etc.)
+            const isMobileOrTablet = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                                     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); // Detecta iPads modernos
+
+            if (!isMobileOrTablet) return; // Se aborta si es PC de escritorio o SmartTV
+
+            function lockLandscape() {
+                try {
+                    // API moderna (Android y navegadores recientes)
+                    if (screen.orientation && screen.orientation.lock) {
+                        screen.orientation.lock('landscape').catch(e => console.warn("Orientation API error:", e));
+                    } 
+                    // APIs antiguas (Navegadores viejos)
+                    else if (screen.lockOrientation) {
+                        screen.lockOrientation('landscape');
+                    } else if (screen.mozLockOrientation) {
+                        screen.mozLockOrientation('landscape');
+                    } else if (screen.msLockOrientation) {
+                        screen.msLockOrientation('landscape');
+                    }
+                } catch (err) {
+                    console.log("No se pudo forzar landscape de forma nativa.", err);
+                }
+            }
+
+            function unlockLandscape() {
+                try {
+                    if (screen.orientation && screen.orientation.unlock) {
+                        screen.orientation.unlock();
+                    } else if (screen.unlockOrientation) {
+                        screen.unlockOrientation();
+                    } else if (screen.mozUnlockOrientation) {
+                        screen.mozUnlockOrientation();
+                    } else if (screen.msUnlockOrientation) {
+                        screen.msUnlockOrientation();
+                    }
+                } catch (err) {}
+            }
+
+            // Esperar a que el reproductor JWPlayer esté inicializado (sin interferir con el original)
+            const checkPlayerInterval = setInterval(() => {
+                if (typeof jwplayer === 'function') {
+                    const player = jwplayer("player");
+                    if (player && player.getState() !== null) {
+                        clearInterval(checkPlayerInterval);
+                        
+                        // Capturar el evento de pantalla completa de forma independiente
+                        player.on('fullscreen', function(e) {
+                            const playerElement = document.getElementById('player');
+                            if (e.fullscreen) {
+                                lockLandscape();
+                                // Fallback extremo CSS para iOS e iPads que ignoran las APIs de orientación
+                                setTimeout(() => {
+                                    if (window.innerHeight > window.innerWidth) { // Si la pantalla sigue estando en vertical
+                                        playerElement.style.setProperty('transform', 'rotate(90deg)', 'important');
+                                        playerElement.style.setProperty('transform-origin', 'center center', 'important');
+                                        playerElement.style.setProperty('width', '100vh', 'important');
+                                        playerElement.style.setProperty('height', '100vw', 'important');
+                                        playerElement.style.setProperty('position', 'fixed', 'important');
+                                        playerElement.style.setProperty('top', '0', 'important');
+                                        playerElement.style.setProperty('left', '0', 'important');
+                                        playerElement.style.setProperty('z-index', '999999', 'important');
+                                    }
+                                }, 300);
+                            } else {
+                                unlockLandscape();
+                                // Limpiar todos los estilos forzados al salir
+                                playerElement.style.transform = '';
+                                playerElement.style.width = '';
+                                playerElement.style.height = '';
+                                playerElement.style.position = '';
+                                playerElement.style.top = '';
+                                playerElement.style.left = '';
+                                playerElement.style.zIndex = '';
+                            }
+                        });
+                    }
+                }
+            }, 500);
+
+            // Vigilar los giros de pantalla del usuario para re-aplicar si es necesario
+            window.addEventListener("orientationchange", function() {
+                const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+                if (isFullscreen) lockLandscape();
+            });
+        })();
+    </script>
+    <!-- FIN: SCRIPT PROFESIONAL APARTE -->
+
+</body>
+</html>
