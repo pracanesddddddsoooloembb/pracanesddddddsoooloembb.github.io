@@ -33,10 +33,10 @@
 
 html,
 body {
-  background-color: #05081c;
+  background-color: #0F1D21	;
   background-image: var(--noise-texture);
   background-blend-mode: overlay;
-            height: 100%;
+            height: 98%;
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -46,9 +46,10 @@ body {
         iframe {
             display: block;
             width: 100vw;
-            height: 100vh;
+            height: 98vh;
             border: none;
         }
+
     </style><body>
 <script type="text/javascript">
 
@@ -65,62 +66,93 @@ body {
   
     var iframeURLs = {
   
-'daafoo1-op0-sd-jwp': {
-            url: 'https://embed.ksdjugfsddeports.com/embed2/daznf1.html',
-        },
-'daafoo1-op1-sd-clap': {
-            url: 'https://embed.ksdjugfsddeports.com/embed/daznf1.html',
-        },
-'daafoo1-op2-sd-jwp': {
-            url: 'https://embed.saohgdasregions.fun/embed2/daznf1.html',
-        },
-'daafoo1-op3-sd-clap': {
-            url: 'https://embed.saohgdasregions.fun/embed/daznf1.html',
-        },
+'daafoo1-op1-sd': {
+            url: 'https://streamxhd.st/live1.php?stream=daznf1',
+        },     
+'daafoo1-op2-sd': {
+            url: 'https://streamx723.sbs/global1.php?channel=daznf1',
+        },      
+'daafoo1-op3-sd': {
+            url: 'https://thedaddy.li/stream/stream-537.php',
+        },          
 'daafoo1-op4-sd': {
-            url: 'https://dlhd.pk/stream/stream-537.php',
-        },
+            url: 'https://thedaddy.li/player/stream-537.php',
+        },        
 'daafoo1-op5-sd': {
+            url: 'https://104game.click/player/1/60',
+        }, 
+'daafoo1-op6-sd': {
+            url: 'https://104game.click/player/2/60',
+        },                    
+'daafoo1-op7-sd': {
+            url: 'https://104game.click/player/3/60',
+        },       
+'daafoo1-op8-sd': {
             url: 'https://cartelive.club/player/1/60',
         },      
-'daafoo1-op6-sd': {
+'daafoo1-op9-sd': {
             url: 'https://cartelive.club/player/2/60',
         },          
-'daafoo1-op7-sd': {
-            url: 'https://cartelive.club/player/3/60',
-        },              
-'daafoo1-op8-sd': {
-            url: 'https://bolaloca.my/player/1/60',
-        },      
-'daafoo1-op9-sd': {
-            url: 'https://bolaloca.my/player/2/60',
-        },          
 'daafoo1-op10-sd': {
-            url: 'https://bolaloca.my/player/3/60',
-        },                          
-'daafoo1-op11-sd': {
-            url: 'https://streamhdx.com/hls.php?stream=daznf1',
-        },  
-'daafoo1-op12-sd': {
-            url: 'https://streamhdx.com/live3.php?stream=daznf1',
-        },        
-'daafoo1-op13-sd': {
-            url: 'https://streamhdx.com/live1.php?stream=daznf1',
+            url: 'https://cartelive.club/player/3/60',
         },           
-'daafoo1-op14-sd': {
+'daafoo': {
             url: 'https://streamhdx.com/live2.php?stream=daznf1',
    
 }
           
     };
  
-    var embedURL = iframeURLs[r];
+ var embedURL = iframeURLs[r];
 
     
     if (embedURL) {
-        document.write('<iframe class="iframe" frameborder="0" src="' + embedURL.url + '" scrolling="no" frameBorder="0" width="100%" height="100%" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen; web-share;" allowfullscreen></iframe>');
+        document.write('<iframe class="iframe" allow="encrypted-media" src="' + embedURL.url + '" name="iframe" id="iframe" width="100%" height="100%" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" allowfullscreen></iframe>');
   
     }       
+</script>
+
+<!-- CONFIGURACIÓN AVANZADA PARA MÓVILES Y TABLETS (Forzar Horizontal) -->
+<script type="text/javascript">
+    function manageOrientation() {
+        // Detecta si se entró en modo pantalla completa
+        var isFullscreen = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+        
+        // Verifica si el usuario está en un dispositivo móvil o tablet (Android, iOS, iPadOS, etc.)
+        var isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+
+        if (isFullscreen && isMobileDevice) {
+            // Entró a pantalla completa en móvil: Forzar Horizontal (Landscape)
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('landscape').catch(function(error) { 
+                    console.log('Bloqueo de rotación no soportado nativamente o requiere interacción: ', error); 
+                });
+            } else if (screen.lockOrientation) {
+                screen.lockOrientation('landscape');
+            } else if (screen.mozLockOrientation) {
+                screen.mozLockOrientation('landscape');
+            } else if (screen.msLockOrientation) {
+                screen.msLockOrientation('landscape');
+            }
+        } else if (!isFullscreen && isMobileDevice) {
+            // Salió de pantalla completa en móvil: Desbloquear orientación para que gire libremente
+            if (screen.orientation && screen.orientation.unlock) {
+                screen.orientation.unlock();
+            } else if (screen.unlockOrientation) {
+                screen.unlockOrientation();
+            } else if (screen.mozUnlockOrientation) {
+                screen.mozUnlockOrientation();
+            } else if (screen.msUnlockOrientation) {
+                screen.msUnlockOrientation();
+            }
+        }
+    }
+
+    // Escuchar el evento de pantalla completa en todos los navegadores posibles (Nuevos y Viejos)
+    document.addEventListener("fullscreenchange", manageOrientation);
+    document.addEventListener("webkitfullscreenchange", manageOrientation); // Para Safari / iOS viejos
+    document.addEventListener("mozfullscreenchange", manageOrientation); // Para Firefox viejos
+    document.addEventListener("MSFullscreenChange", manageOrientation); // Para IE/Edge viejos
 </script>
 </body>
 </html>
